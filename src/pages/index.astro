@@ -1,5 +1,4 @@
 ---
-// Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
@@ -19,7 +18,7 @@ import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 
-const avatarSrcs: Array<string> = [
+const avatarSrcs = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
@@ -28,123 +27,112 @@ const avatarSrcs: Array<string> = [
 ---
 
 <MainLayout>
-  <!-- 
-  <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Explore ScrewFast on GitHub"
-    url="https://github.com/mearashadowfax/ScrewFast"
-  />
-  -->
-
-
   <HeroSection
-    title=` Tu Aliado Industrial <span
-        class="text-yellow-500 dark:text-yellow-400"> </span>`
-    subTitle="Equipos, transformadores, inspección y pruebas técnicas con el respaldo de expertos para mantener tu operación en marcha, solo en EquiTrading"
+    title={`Tu Aliado Industrial <span class="text-yellow-500 dark:text-yellow-400"></span>`}
+    subTitle="Equipos, transformadores, inspección y pruebas técnicas con el respaldo de expertos para mantener tu operación en marcha, solo en EQUITRADING"
     primaryBtn="Empieza a explorar"
-    primaryBtnURL="/"
+    primaryBtnURL="#features-navs"
     secondaryBtn="Contacta con nosotros"
     secondaryBtnURL="/contact"
     withReview={true}
     avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
+    rating={`<span class="font-bold">4.8</span> / 5`}
     starCount={4}
-    reviews=`De más de <span class="font-bold">12.8k</span> reseñas`
+    reviews={`De más de <span class="font-bold">12.8k</span> reseñas`}
     src={heroImage}
     alt="Stack of ScrewFast product boxes containing assorted hardware tools"
   />
 
   <ClientsSection
-  title="Brindando Confianza a Líderes de la Industria"
-  subTitle="Experimenta la confiabilidad elegida por clientes de talla nacional y mundial."
-  
+    title="Brindando Confianza a Líderes de la Industria"
+    subTitle="Experimenta la confiabilidad elegida por clientes de talla nacional y mundial."
   />
 
   <FeaturesGeneral
-  title="Cumpliendo con las Demandas del Sector"
-  subTitle="En EquiTrading, abordamos los desafíos únicos en la industria de la energía y transformación de potencia. Desde equipos especializados hasta servicios de inspección y certificación, nos dedicamos a ayudarte a superar obstáculos y alcanzar tus objetivos."
-  src={featureImage}
-  alt="Productos y servicios de EquiTrading en cajas flotantes"
-  features={features}
-/>
+    title="Cumpliendo con las Demandas del Sector"
+    subTitle="En EQUITRADING, abordamos los desafíos únicos en la industria de la energía y transformación de potencia. Desde equipos especializados hasta servicios de inspección y certificación, nos dedicamos a ayudarte a superar obstáculos y alcanzar tus objetivos."
+    src={featureImage}
+    alt="Productos y servicios de EQUITRADING en cajas flotantes"
+    features={features}
+  />
 
+  <!-- Añadido id para permitir el ancla desde el botón -->
+  <FeaturesNavs
+    id="features-navs"
+    title={`Personaliza las soluciones de <span class="text-yellow-500 dark:text-yellow-400">EQUITRADING</span> para satisfacer tus necesidades en maquinaria, transformadores y servicios de inspección.`}
+    tabs={[
+      {
+        heading: "Equipos y Maquinaria de Segunda Mano",
+        content:
+          "Optimiza tus proyectos con maquinaria de segunda mano de EQUITRADING. Ofrecemos equipos inspeccionados y certificados, garantizando su buen estado para asegurar tu inversión en la construcción y otros sectores.",
+        svg: "tools",
+        src: tools,
+        alt: "Maquinaria pesada en un campo de césped",
+        first: true,
+      },
+      {
+        heading: "Transformadores y Accesorios",
+        content:
+          "Encuentra transformadores de potencia, accesorios y repuestos en EQUITRADING. Desde transformadores secos hasta sistemas de secado automático, tenemos la solución adecuada para tus necesidades específicas.",
+        svg: "dashboard",
+        src: dashboard,
+        alt: "Transformadores y accesorios para equipos eléctricos",
+        second: true,
+      },
+      {
+        heading: "Servicios de Inspección y Pruebas",
+        content:
+          "Asegura la calidad de tus equipos con los servicios de inspección y pruebas de EQUITRADING. Ofrecemos pruebas eléctricas, mecánicas y certificación de materiales para garantizar el cumplimiento de normativas y estándares.",
+        svg: "house",
+        src: construction,
+        alt: "Equipo en inspección y pruebas",
+      },
+    ]}
+  />
 
-<FeaturesNavs
-  title={`Personaliza las soluciones de <span class="text-yellow-500 dark:text-yellow-400">EQUITRADING</span> para satisfacer tus necesidades en maquinaria, transformadores y servicios de inspección.`}
-  tabs={[
-    {
-      heading: "Equipos y Maquinaria de Segunda Mano",
-      content:
-        "Optimiza tus proyectos con maquinaria de segunda mano de EQUITRADING. Ofrecemos equipos inspeccionados y certificados, garantizando su buen estado para asegurar tu inversión en la construcción y otros sectores.",
-      svg: "tools",
-      src: tools,
-      alt: "Maquinaria pesada en un campo de césped",
-      first: true,
-    },
-    {
-      heading: "Transformadores y Accesorios",
-      content:
-        "Encuentra transformadores de potencia, accesorios y repuestos en EQUITRADING. Desde transformadores secos hasta sistemas de secado automático, tenemos la solución adecuada para tus necesidades específicas.",
-      svg: "dashboard",
-      src: dashboard,
-      alt: "Transformadores y accesorios para equipos eléctricos",
-      second: true,
-    },
-    {
-      heading: "Servicios de Inspección y Pruebas",
-      content:
-        "Asegura la calidad de tus equipos con los servicios de inspección y pruebas de EQUITRADING. Ofrecemos pruebas eléctricas, mecánicas y certificación de materiales para garantizar el cumplimiento de normativas y estándares.",
-      svg: "house",
-      src: construction,
-      alt: "Equipo en inspección y pruebas",
-    },
-  ]}
-/>
-
-<TestimonialsSection
-  title="Impulsa tus Proyectos con EQUITRADING"
-  subTitle="En EQUITRADING, ofrecemos soluciones rápidas y eficientes para la compra, venta, inspección y prueba de maquinaria y equipos especializados. Descubre cómo podemos mejorar la eficiencia y confiabilidad en tus operaciones."
-  testimonials={[
-    {
-      content:
-        "EQUITRADING revolucionó nuestra forma de adquirir y manejar equipos industriales. La calidad de su maquinaria de segunda mano, junto con su servicio de inspección y pruebas, nos ha permitido optimizar nuestras operaciones y reducir costos. Son un aliado confiable en el mercado de equipos y transformadores.",
-      author: "Daniela Medina",
-      role: "Gerente de Operaciones | Industria Energética S.A.",
-      avatarSrc:
-        "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    },
-  ]}
-  statistics={[
-    {
-      count: "325",
-      description:
-        "Maquinarias vendidas — desde equipos de segunda mano hasta transformadores especializados",
-    },
-    {
-      count: "2,500",
-      description:
-        "Pruebas realizadas en equipos para asegurar su funcionamiento y seguridad",
-    },
-    {
-      count: "100",
-      description:
-        "Servicios de inspección de materiales y equipos ofrecidos",
-    },
-    {
-      count: "70",
-      description: "Inspecciones de equipos realizadas con certificación de calidad",
-    },
-  ]}
-/>
+  <TestimonialsSection
+    title="Impulsa tus Proyectos con EQUITRADING"
+    subTitle="En EQUITRADING, ofrecemos soluciones rápidas y eficientes para la compra, venta, inspección y prueba de maquinaria y equipos especializados. Descubre cómo podemos mejorar la eficiencia y confiabilidad en tus operaciones."
+    testimonials={[
+      {
+        content:
+          "EQUITRADING revolucionó nuestra forma de adquirir y manejar equipos industriales. La calidad de su maquinaria de segunda mano, junto con su servicio de inspección y pruebas, nos ha permitido optimizar nuestras operaciones y reducir costos. Son un aliado confiable en el mercado de equipos y transformadores.",
+        author: "Daniela Medina",
+        role: "Gerente de Operaciones | Industria Energética S.A.",
+        avatarSrc:
+          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      },
+    ]}
+    statistics={[
+      {
+        count: "325",
+        description:
+          "Maquinarias vendidas — desde equipos de segunda mano hasta transformadores especializados",
+      },
+      {
+        count: "2,500",
+        description:
+          "Pruebas realizadas en equipos para asegurar su funcionamiento y seguridad",
+      },
+      {
+        count: "100",
+        description:
+          "Servicios de inspección de materiales y equipos ofrecidos",
+      },
+      {
+        count: "70",
+        description: "Inspecciones de equipos realizadas con certificación de calidad",
+      },
+    ]}
+  />
 
   <PricingSection pricing={pricing} />
 
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
   <HeroSectionAlt
-  title="¡Contáctanos!"
-  subTitle="En EQUITRADING, estamos aquí para ayudarte con la compra, venta, inspección y pruebas de maquinaria y equipos. Completa el formulario y uno de nuestros expertos se pondrá en contacto contigo para asistirte en todo lo que necesites."
-  url="./contact.astro"
-/>
-
+    title="¡Contáctanos!"
+    subTitle="En EQUITRADING, estamos aquí para ayudarte con la compra, venta, inspección y pruebas de maquinaria y equipos. Completa el formulario y uno de nuestros expertos se pondrá en contacto contigo para asistirte en todo lo que necesites."
+    url="./contact.astro"
+  />
 </MainLayout>

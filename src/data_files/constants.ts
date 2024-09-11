@@ -1,7 +1,7 @@
 import ogImageSrc from "@images/social.png";
 
 export const SITE = {
-  title: "EquiTrading",
+  title: "EQUITRADING",
   tagline: "Top-quality Hardware Tools",
   description: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
   description_short: "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
@@ -33,7 +33,7 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description: "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  title: `${SITE.title}:Tu Socio en Transformadores de Potencia`,
+  description: "En EQUITRADING, ofrecemos soluciones de alta calidad en transformadores de potencia, equipos eléctricos y servicios de inspección. Confiabilidad y excelencia en cada proyecto!",
   image: ogImageSrc,
 };
