@@ -1,5 +1,4 @@
 ---
-// Import the necessary dependencies.
 import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import TextInput from "@components/ui/forms/input/TextInput.astro";
@@ -8,15 +7,15 @@ import PhoneInput from "@components/ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
-// Define the variables that will be used in this component
-const title: string = "Contact us";
+// Define las variables que se usarán en este componente
+const title: string = "Contáctanos";
 const subTitle: string =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const formTitle: string = "Fill in the form below";
-const formSubTitle: string = "We'll get back to you in 1-2 business days.";
+  "¿Tienes alguna pregunta o quieres hablar de un proyecto? Contáctanos y encontraremos la solución perfecta con nuestras herramientas y servicios.";
+const formTitle: string = "Rellena el siguiente formulario";
+const formSubTitle: string = "Te responderemos en 1-2 días hábiles.";
 ---
 
-<!-- Contact Us -->
+<!-- Contáctanos -->
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
@@ -37,33 +36,32 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
         >
           {formTitle}
         </h2>
-        <!-- Form for user input with various input fields.-->
-        <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
+        <!-- Formulario para la entrada del usuario con varios campos de entrada. -->
         <form>
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
-                label="First Name"
+                label="Nombre"
                 name="hs-firstname-contacts"
               />
               <TextInput
                 id="hs-lastname-contacts"
-                label="Last Name"
-                name="hs-firstname-contacts"
+                label="Apellido"
+                name="hs-lastname-contacts"
               />
             </div>
             <EmailContactInput id="hs-email-contacts" />
             <PhoneInput id="hs-phone-number" />
             <TextAreaInput
               id="hs-about-contacts"
-              label="Details"
+              label="Detalles"
               name="hs-about-contacts"
             />
           </div>
 
           <div class="mt-4 grid">
-            <AuthBtn title="Send Message" />
+            <AuthBtn title="Enviar Mensaje" />
           </div>
 
           <div class="mt-3 text-center">
@@ -74,44 +72,46 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
         </form>
       </div>
 
-      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
+      <!-- ContactIconBlocks se utilizan para mostrar diferentes métodos de contacto, incluyendo la visita a la oficina, el correo electrónico, la navegación por la base de conocimientos y las preguntas frecuentes. -->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
-        <ContactIconBlock
-          heading="Knowledgebase"
-          content="Browse through all of our knowledgebase articles."
-          isLinkVisible={true}
-          linkTitle="Visit guides & tutorials"
-          linkURL="#"
-          isArrowVisible={true}
-          ><Icon name="question" />
-        </ContactIconBlock>
+
 
         <ContactIconBlock
-          heading="FAQ"
-          content="Explore our FAQ for quick, clear answers to common queries."
+          heading="Preguntas Frecuentes"
+          content="Explora nuestras FAQ para respuestas rápidas y claras a las preguntas comunes."
           isLinkVisible={true}
-          linkTitle="Visit FAQ"
-          linkURL="#"
+          linkTitle="Visitar FAQ"
+          linkURL="/"
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visit our office"
-          content="UK ScrewFast"
+          heading="Visita nuestra oficina"
+          content="Equitrading"
           isAddressVisible={true}
-          addressContent="72 Union Terrace, E10 4PE London"
+          addressContent="Cra 44c #16-48 Manzana C Casa 8A El Buque Alto, Villavicencio"
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Contact us by email"
-          content="Prefer the written word? Drop us an email at"
-          isLinkVisible={true}
-          linkTitle="support@screwfast.uk"
-          linkURL="#"
-          ><Icon name="envelopeOpen" />
-        </ContactIconBlock>
+        heading="Contáctanos por correo electrónico"
+        content="¿Prefieres el correo escrito? Envíanos un correo a"
+        isLinkVisible={true}
+        linkTitle="gerencia1@equitrading.com.co"
+        linkURL="mailto:gerencia1@equitrading.com.co"
+      ><Icon name="envelopeOpen" />
+      </ContactIconBlock>
+      
+
+        <ContactIconBlock
+        heading="Contáctanos por WhatsApp"
+        content="También puedes llamarnos o enviarnos un mensaje por WhatsApp al"
+        isLinkVisible={true}
+        linkTitle="57 315 554 78 56"
+        linkURL="https://wa.me/573155547856"
+      ><Icon name="question" /></ContactIconBlock>
+      
       </div>
     </div>
   </div>

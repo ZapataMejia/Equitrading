@@ -1,18 +1,8 @@
 ---
-// Import the necessary dependencies
-import GithubBtn from "@components/ui/buttons/GithubBtn.astro";
+const { title, subTitle } = Astro.props;
 
-// Define props from Astro
-const { title, subTitle, url } = Astro.props;
-
-const btnTitle = Astro.currentLocale === "fr" ? "Continuer avec Github" : "Continue with Github";
-
-// Define TypeScript interface for props
-interface Props {
-  title: string;
-  subTitle?: string;
-  url?: string;
-}
+const btnTitle = Astro.currentLocale === "fr" ? "Continuer avec Github" : "Contacta con Nosotros!";
+const contactUrl = "/contact";
 ---
 
 <section
@@ -134,12 +124,10 @@ interface Props {
       )
     }
   </div>
-  <!-- Github Button -->
-  {
-    url && (
-      <div class="mt-8 flex justify-center gap-3">
-        <GithubBtn url={url} title={btnTitle}/>
-      </div>
-    )
-  }
+  <!-- Contact Button -->
+  <div class="mt-8 flex justify-center gap-3">
+    <a href={contactUrl} class="bg-yellow-400 text-white py-2 px-4 rounded-full shadow-lg hover:bg-yellow-500 transition-colors">
+      {btnTitle}
+    </a>
+  </div>
 </section>
