@@ -33,7 +33,7 @@ export const OG = {
   locale: "en_US",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}:Tu Socio en Transformadores de Potencia`,
+  title: `${SITE.title}:Tu aliado en Transformadores de Potencia`,
   description: "En EQUITRADING, ofrecemos soluciones de alta calidad en transformadores de potencia, equipos eléctricos y servicios de inspección. Confiabilidad y excelencia en cada proyecto!",
   image: ogImageSrc,
 };
