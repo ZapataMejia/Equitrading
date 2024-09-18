@@ -1,14 +1,11 @@
 ---
-// Importing necessary components
 import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
 import { SITE } from "@data/constants";
 
-// Setting expected props
 const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
 
-// Interface to type-check the properties
 interface Props {
   title?: string;
   meta?: string;
@@ -17,18 +14,38 @@ interface Props {
 }
 ---
 
-<!--
-This is the main structure for the page.
-We set the language of the page to English and add classes for scrollbar and scroll behavior.
--->
 <html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w: Window, d: Document, s: string, l: string, i: string){
+        (w as any)[l] = (w as any)[l] || [];
+        (w as any)[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+
+        const f = d.getElementsByTagName(s)[0] as HTMLScriptElement | null;
+        const j: HTMLScriptElement = d.createElement(s) as HTMLScriptElement;
+        const dl = l !== 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+
+        if (f && f.parentNode) {
+          f.parentNode.insertBefore(j, f);
+        }
+      })(window, document, 'script', 'dataLayer', 'GTM-5GFR8KWT');
+    </script>
+    <!-- End Google Tag Manager -->
+
     <!-- Define the title of the page -->
     <title>{title}</title>
+
+    <!-- Dark mode script -->
     <script is:inline>
-      // Script to handle dark mode. It will check if the theme is stored in localStorage or if dark theme is preferred by system settings
       if (
         localStorage.getItem("hs_theme") === "dark" ||
         (!("hs_theme" in localStorage) &&
@@ -39,24 +56,29 @@ We set the language of the page to English and add classes for scrollbar and scr
         document.documentElement.classList.remove("dark");
       }
     </script>
+
     <script>
       import "@scripts/lenisSmoothScroll.js";
     </script>
   </head>
-  <body
-    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
-  >
-    <!--
-    Setting up the main structure of the page.
-    The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
-    -->
+
+  <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GFR8KWT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Main layout structure -->
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <Navbar />
       <main>
         <slot />
       </main>
     </div>
+
     <FooterSection />
+
     <style>
       /* CSS rules for the page scrollbar */
       .scrollbar-hide::-webkit-scrollbar {
